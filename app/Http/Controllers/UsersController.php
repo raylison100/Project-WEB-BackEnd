@@ -33,4 +33,8 @@ class UsersController extends AppController
     {
         return $this->service->update($request->all(), $id);
     }
+
+    public function eventsParticipants($id){
+        return $this->service->eventsParticipants($id);
+    }
 }

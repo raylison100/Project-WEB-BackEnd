@@ -60,16 +60,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.98.0",
+            "version": "3.99.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "00c4963e491b075aca6722ff3f302048c1488e0d"
+                "reference": "0a212802416698b1a452ca317c16cb909a2dd1ca"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/00c4963e491b075aca6722ff3f302048c1488e0d",
-                "reference": "00c4963e491b075aca6722ff3f302048c1488e0d",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/0a212802416698b1a452ca317c16cb909a2dd1ca",
+                "reference": "0a212802416698b1a452ca317c16cb909a2dd1ca",
                 "shasum": ""
             },
             "require": {
@@ -139,7 +139,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2019-05-30T18:59:53+00:00"
+            "time": "2019-06-03T18:16:19+00:00"
         },
         {
             "name": "barryvdh/laravel-cors",
@@ -950,16 +950,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v5.8.19",
+            "version": "v5.8.20",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "47bb1471b727a0c1497143dccf46aacf73c0ce6b"
+                "reference": "6c29b6fd3aa6991c7b610607d86db53aaadf165c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/47bb1471b727a0c1497143dccf46aacf73c0ce6b",
-                "reference": "47bb1471b727a0c1497143dccf46aacf73c0ce6b",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/6c29b6fd3aa6991c7b610607d86db53aaadf165c",
+                "reference": "6c29b6fd3aa6991c7b610607d86db53aaadf165c",
                 "shasum": ""
             },
             "require": {
@@ -1093,7 +1093,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2019-05-28T13:19:37+00:00"
+            "time": "2019-06-04T13:08:34+00:00"
         },
         {
             "name": "laravel/passport",

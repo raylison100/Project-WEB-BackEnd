@@ -8,6 +8,7 @@
 
 namespace App\Services;
 
+use App\Models\Participant;
 use App\Models\UserType;
 use App\Notifications\SignupActivate;
 use App\Repositories\UserRepository;
@@ -15,27 +16,17 @@ use App\Services\Traits\CrudMethods;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
-
-/**
- * Class UserService
- * @package App\Services
- */
 class UserService
 {
     use CrudMethods;
 
-    /**
-     * @var UserRepository
-     */
     protected $repository;
+    protected $auth;
 
-    /**
-     * UserService constructor.
-     * @param UserRepository $repository
-     */
-    public function __construct(UserRepository $repository)
+    public function __construct(UserRepository $repository,AuthService $auth)
     {
         $this->repository = $repository;
+        $this->auth = $auth;
     }
 
     public function create(array $data, $skipPresenter = true)
@@ -82,5 +73,13 @@ class UserService
                 'message' => "Failed to update user"
             ];
         }
+    }
+
+    public function eventsParticipants(){
+        $user =  $this->auth->getUserByToken();
+
+        $events = Participant::where()->get();
+
+        return null;
     }
 }

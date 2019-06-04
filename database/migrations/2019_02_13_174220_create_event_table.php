@@ -25,10 +25,12 @@ class CreateEventTable extends Migration
             $table->softDeletes();
 
             $table->foreign('user_id')
-                ->references('id')->on('users');
+                ->references('id')->on('users')
+                ->onDelete('cascade');
 
             $table->foreign('status_event_id')
-                ->references('id')->on('status_events');
+                ->references('id')->on('status_events')
+                ->onDelete('cascade');
         });
     }
 

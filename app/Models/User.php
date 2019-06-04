@@ -46,8 +46,7 @@ class User extends Authenticatable implements Transformable
         return $this->belongsTo(UserType::class ,'user_type_id');
     }
 
-    public function messages()
-    {
-        return $this->hasMany(Message::class);
+    public function events(){
+        return $this->hasMany(Event::class);
     }
 }

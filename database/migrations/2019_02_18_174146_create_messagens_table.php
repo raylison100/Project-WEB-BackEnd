@@ -21,12 +21,15 @@ class CreateMessagensTable extends Migration
             $table->string('content');
             $table->unsignedInteger('user_id')->nullable(false);
             $table->unsignedInteger('event_id')->nullable(false);
-            $table->unsignedInteger('user_type_id')->default(null);
             $table->timestamps();
             $table->softDeletes();
 
             $table->foreign('event_id')
                 ->references('id')->on('events')
+                ->onDelete('cascade');
+
+            $table->foreign('user_id')
+                ->references('id')->on('users')
                 ->onDelete('cascade');
         });
     }
