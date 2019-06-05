@@ -21,12 +21,10 @@ class UserService
     use CrudMethods;
 
     protected $repository;
-    protected $auth;
 
-    public function __construct(UserRepository $repository,AuthService $auth)
+    public function __construct(UserRepository $repository)
     {
         $this->repository = $repository;
-        $this->auth = $auth;
     }
 
     public function create(array $data, $skipPresenter = true)
@@ -76,9 +74,9 @@ class UserService
     }
 
     public function eventsParticipants(){
-        $user =  $this->auth->getUserByToken();
-
-        $events = Participant::where()->get();
+//        $user =  $this->auth->getUserByToken();
+//
+//        $events = Participant::where()->get();
 
         return null;
     }
