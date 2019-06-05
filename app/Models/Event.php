@@ -19,6 +19,7 @@ class Event extends Model implements Transformable
 
     protected $fillable = [
         'subject',
+        'description',
         'status_event_id',
         'user_id',
     ];

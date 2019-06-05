@@ -10,23 +10,38 @@ namespace App\Services;
 
 use App\Repositories\EventRepository;
 use App\Services\Traits\CrudMethods;
-use Illuminate\Http\Request;
 
 class EventService
 {
     use CrudMethods;
 
     protected $repository;
-    protected $auth;
 
-    public function __construct(EventRepository $repository, AuthService $auth)
+
+    public function __construct(EventRepository $repository )
     {
         $this->repository = $repository;
-        $this->auth = $auth;
     }
 
-    public function participantAdd($event_id){
-        $user =  $this->auth->getUserByToken();
+    public function create(array $data, $skipPresenter = false)
+    {
+        try{
+            DB::beginTransaction();
+            dd($data);
+            $data =  $this->repository->skipPresenter($skipPresenter)->create($data);
+            DB::commit();
+            return $data;
+        }catch (\Exception $e){
+            DB::rollBack();
+            return [
+                'error' => true,
+                'message' => "Failed to create data"
+            ];
+        }
+    }
+
+    public function participantAdd(){
+
         return null;
     }
 }

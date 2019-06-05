@@ -27,7 +27,7 @@ class EventsController extends AppController
         $this->service = $service;
     }
 
-    public function participantAdd($id){
-        return $this->service->participantAdd($id);
+    public function participantAdd(){
+        return $this->service->participantAdd();
     }
 }

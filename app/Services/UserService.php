@@ -13,6 +13,7 @@ use App\Models\UserType;
 use App\Notifications\SignupActivate;
 use App\Repositories\UserRepository;
 use App\Services\Traits\CrudMethods;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
@@ -21,12 +22,10 @@ class UserService
     use CrudMethods;
 
     protected $repository;
-    protected $auth;
 
-    public function __construct(UserRepository $repository,AuthService $auth)
+    public function __construct(UserRepository $repository)
     {
         $this->repository = $repository;
-        $this->auth = $auth;
     }
 
     public function create(array $data, $skipPresenter = true)
@@ -76,9 +75,9 @@ class UserService
     }
 
     public function eventsParticipants(){
-        $user =  $this->auth->getUserByToken();
-
-        $events = Participant::where()->get();
+       $user = Auth::user();
+       dd($user);//
+//        $events = Participant::where()->get();
 
         return null;
     }
