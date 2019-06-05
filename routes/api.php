@@ -41,10 +41,10 @@ Route::group(['prefix' => 'betterworld'], function () {
 
         // User
         Route::get('users', 'UsersController@index');// Return all users.
+        Route::get('users/participant', 'UsersController@eventsParticipants');// Return all events for a user.
         Route::get('users/{id}', 'UsersController@show');// Return a users.
         Route::put('users/{id}', 'UsersController@update');// Update a user.
         Route::delete('users/{id}', 'UsersController@destroy');// Delete a user.
-        Route::get('users/participant', 'UsersController@eventsParticipants');// Return all events for a user.
 
         //Events
         Route::get('events', 'EventsController@index');// Busca todos os events

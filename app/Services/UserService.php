@@ -13,6 +13,7 @@ use App\Models\UserType;
 use App\Notifications\SignupActivate;
 use App\Repositories\UserRepository;
 use App\Services\Traits\CrudMethods;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
@@ -74,8 +75,8 @@ class UserService
     }
 
     public function eventsParticipants(){
-//        $user =  $this->auth->getUserByToken();
-//
+       $user = Auth::user();
+       dd($user);//
 //        $events = Participant::where()->get();
 
         return null;
