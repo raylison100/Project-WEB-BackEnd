@@ -8,7 +8,7 @@ use Prettus\Repository\Contracts\Transformable;
 use Prettus\Repository\Traits\TransformableTrait;
 
 /**
- * Class Ticket.
+ * Class Event.
  *
  * @package namespace App\Models;
  */
@@ -45,6 +45,6 @@ class Event extends Model implements Transformable
 
     public function participants()
     {
-        return $this->belongsToMany(Participant::class,'event_participants');
+        return $this->belongsToMany(Participant::class);
     }
 }

@@ -8,8 +8,13 @@
 
 namespace App\Services;
 
+use App\Models\StatusEvent;
+use App\Repositories\EventParticipantRepository;
 use App\Repositories\EventRepository;
+use App\Repositories\ParticipantRepository;
 use App\Services\Traits\CrudMethods;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class EventService
 {
@@ -17,18 +22,18 @@ class EventService
 
     protected $repository;
 
-
-    public function __construct(EventRepository $repository )
+    public function __construct(EventRepository $eventRepository)
     {
-        $this->repository = $repository;
+        $this->repository = $eventRepository;
     }
 
     public function create(array $data, $skipPresenter = false)
     {
         try{
             DB::beginTransaction();
-            dd($data);
-            $data =  $this->repository->skipPresenter($skipPresenter)->create($data);
+            $data['user_id']  =  Auth::user()->getAuthIdentifier();
+            $data['status_event_id']  =  StatusEvent::STATUS_CREATED;
+            $data =  $this->repository->create($data);
             DB::commit();
             return $data;
         }catch (\Exception $e){
@@ -40,8 +45,4 @@ class EventService
         }
     }
 
-    public function participantAdd(){
-
-        return null;
-    }
 }

@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Http\Controllers\AppController;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\PasswordCreateRequest;
 use App\Http\Requests\PasswordConfirmationRequest;
 use App\Services\PasswordResetService;
 
-class PasswordResetController extends Controller
+class PasswordResetController extends AppController
 {
 
     protected $service;

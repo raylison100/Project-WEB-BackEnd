@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\ticketUpdateRequest;
-use App\Models\Event;
+use App\Http\Controllers\Traits\CrudMethods;
 use App\Services\EventService;
-use Illuminate\Http\Request;
+
 
 /**
  * Class EventsController.
@@ -15,6 +14,8 @@ use Illuminate\Http\Request;
 class EventsController extends AppController
 {
 
+    use CrudMethods;
+    
     protected $service;
 
     /**
@@ -25,9 +26,5 @@ class EventsController extends AppController
     public function __construct(EventService $service)
     {
         $this->service = $service;
-    }
-
-    public function participantAdd(){
-        return $this->service->participantAdd();
     }
 }

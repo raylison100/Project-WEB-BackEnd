@@ -6,7 +6,7 @@ use App\Transformers\EventTransformer;
 use Prettus\Repository\Presenter\FractalPresenter;
 
 /**
- * Class TicketsPresenter.
+ * Class EventPresenter.
  *
  * @package namespace App\Presenters;
  */

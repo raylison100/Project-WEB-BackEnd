@@ -24,7 +24,7 @@ class MessageCreateRequest extends FormRequest
     public function rules()
     {
         return [
-            'ticket_id'     => 'required|integer',
+            'event_id'     => 'required|integer',
         ];
     }
 

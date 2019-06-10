@@ -8,7 +8,7 @@
 
 namespace App\Services;
 
-use App\Models\Participant;
+use App\Models\EventParticipant;
 use App\Models\UserType;
 use App\Notifications\SignupActivate;
 use App\Repositories\UserRepository;
@@ -44,13 +44,9 @@ class UserService
             ]);
         }catch (\Exception $e){
             DB::rollBack();
-//            return response()->json([
-//                'error' => true,
-//                'message' => "Fail create user"
-//            ]);
             return response()->json([
                 'error' => true,
-                'message' => $e->getMessage()
+                'message' => "Fail create user"
             ]);
         }
     }
@@ -77,7 +73,7 @@ class UserService
     public function eventsParticipants(){
        $user = Auth::user();
        dd($user);//
-//        $events = Participant::where()->get();
+//        $events = EventParticipant::where()->get();
 
         return null;
     }

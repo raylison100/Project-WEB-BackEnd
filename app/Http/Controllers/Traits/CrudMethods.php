@@ -9,7 +9,6 @@
 namespace App\Http\Controllers\Traits;
 
 use Prettus\Validator\Contracts\ValidatorInterface;
-use Prettus\Validator\Exceptions\ValidatorException;
 use Illuminate\Http\Request;
 
 /**

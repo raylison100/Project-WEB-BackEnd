@@ -13,7 +13,7 @@ use League\Fractal\TransformerAbstract;
 class EventTransformer extends TransformerAbstract
 {
     /**
-     * Transform the Ticket entity.
+     * Transform the Event entity.
      *
      * @param Event $model
      *
@@ -60,8 +60,6 @@ class EventTransformer extends TransformerAbstract
             $posts = [
                 "id"            => $participant->user_id,
                 "name"          => $participant->user->name,
-                'created_at'    => $participant->created_at->toDateTimeString(),
-                'updated_at'    => $participant->updated_at->toDateTimeString(),
             ];
             $participants[$counter] = $posts;
             ++$counter;

@@ -6,6 +6,7 @@ use App\Presenters\UserPresenter;
 use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
 use App\Models\User;
+use Prettus\Repository\Exceptions\RepositoryException;
 
 /**
  * Class UserRepositoryEloquent.
@@ -34,7 +35,7 @@ class UserRepositoryEloquent extends BaseRepository implements UserRepository
 
     /**
      * Boot up the repository, pushing criteria
-     * @throws \Prettus\Repository\Exceptions\RepositoryException
+     * @throws RepositoryException
      */
     public function boot()
     {

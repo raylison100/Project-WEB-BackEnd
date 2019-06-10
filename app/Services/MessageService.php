@@ -29,9 +29,7 @@ class MessageService
     {
        try{
            $user = $this->authService->getUserByToken();
-
            $data['user_id'] = $user->id;
-           $data['user_type_id'] = $user->user_type_id;
            DB::beginTransaction();
            $message = $this->repository->create($data);
            DB::commit();
@@ -52,7 +50,6 @@ class MessageService
             $user = $this->authService->getUserByToken();
 
             $data['user_id'] = $user->id;
-            $data['user_type_id'] = $user->user_type_id;
             DB::beginTransaction();
             $message = $this->repository->update($data, $id);
             DB::commit();

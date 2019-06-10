@@ -41,7 +41,7 @@ class SignupActivate extends Notification implements ShouldQueue
      */
     public function toMail($notifiable)
     {
-        $url = url('/api/betterworld/find/{token}'.$notifiable->activation_token);
+        $url = url('/api/betterworld/activate/'.$notifiable->activation_token);
 //        $url = url('http://localhost:4200/#/auth/confirm-account/'.$notifiable->activation_token);
         return (new MailMessage)
             ->subject('Confirm your account')

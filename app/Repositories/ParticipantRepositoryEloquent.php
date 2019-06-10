@@ -7,6 +7,7 @@ use Prettus\Repository\Criteria\RequestCriteria;
 use App\Repositories\participantRepository;
 use App\Models\Participant;
 use App\Validators\ParticipantValidator;
+use Prettus\Repository\Exceptions\RepositoryException;
 
 /**
  * Class ParticipantRepositoryEloquent.
@@ -25,10 +26,9 @@ class ParticipantRepositoryEloquent extends BaseRepository implements Participan
         return Participant::class;
     }
 
-    
-
     /**
      * Boot up the repository, pushing criteria
+     * @throws RepositoryException
      */
     public function boot()
     {

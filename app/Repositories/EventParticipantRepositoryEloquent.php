@@ -2,16 +2,18 @@
 
 namespace App\Repositories;
 
-use App\Presenters\MessagePresenter;
 use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
-use App\Models\Message;
+use App\Repositories\event_participantRepository;
+use App\Models\EventParticipant;
+use App\Validators\EventParticipantValidator;
 
 /**
+ * Class EventParticipantRepositoryEloquent.
  *
  * @package namespace App\Repositories;
  */
-class MessageRepositoryEloquent extends BaseRepository implements MessageRepository
+class EventParticipantRepositoryEloquent extends BaseRepository implements EventParticipantRepository
 {
     /**
      * Specify Model class name
@@ -20,17 +22,10 @@ class MessageRepositoryEloquent extends BaseRepository implements MessageReposit
      */
     public function model()
     {
-        return Message::class;
+        return EventParticipant::class;
     }
 
-    /**
-     * @return string
-     */
-    public function presenter()
-    {
-        return MessagePresenter::class;
-    }
-
+    
 
     /**
      * Boot up the repository, pushing criteria

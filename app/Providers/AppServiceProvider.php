@@ -25,8 +25,9 @@ class AppServiceProvider extends ServiceProvider
     {
         $this->app->bind(\App\Repositories\UserRepository::class, \App\Repositories\UserRepositoryEloquent::class);
         $this->app->bind(\App\Repositories\PasswordResetRepository::class, \App\Repositories\PasswordResetRepositoryEloquent::class);
-        $this->app->bind(\App\Repositories\EventRepositoryEloquent::class, \App\Repositories\EventRepositoryEloquent::class);
-        $this->app->bind(\App\Repositories\MessageRepositoryEloquent::class, \App\Repositories\MessageRepositoryEloquent::class);
+        $this->app->bind(\App\Repositories\EventRepository::class, \App\Repositories\EventRepositoryEloquent::class);
+        $this->app->bind(\App\Repositories\MessageRepository::class, \App\Repositories\MessageRepositoryEloquent::class);
         $this->app->bind(\App\Repositories\ParticipantRepository::class, \App\Repositories\ParticipantRepositoryEloquent::class);
+        $this->app->bind(\App\Repositories\EventParticipantRepository::class, \App\Repositories\EventParticipantRepositoryEloquent::class);
     }
 }

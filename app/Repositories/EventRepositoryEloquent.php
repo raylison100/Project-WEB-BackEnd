@@ -2,13 +2,14 @@
 
 namespace App\Repositories;
 
+use App\Models\Event;
 use App\Presenters\EventPresenter;
 use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
-use App\Models\Ticket;
+use Prettus\Repository\Exceptions\RepositoryException;
 
 /**
- * Class TicketsRepositoryEloquent.
+ * Class EventRepositoryEloquent.
  *
  * @package namespace App\Repositories;
  */
@@ -21,7 +22,7 @@ class EventRepositoryEloquent extends BaseRepository implements EventRepository
      */
     public function model()
     {
-        return Ticket::class;
+        return Event::class;
     }
 
     /**
@@ -33,7 +34,8 @@ class EventRepositoryEloquent extends BaseRepository implements EventRepository
     }
 
     /**
-     * Boot up the repository, pushing criteria
+     * Boot up the repository, pushing criteria     *
+     * * @throws RepositoryException
      */
     public function boot()
     {

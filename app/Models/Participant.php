@@ -14,15 +14,11 @@ use Prettus\Repository\Traits\TransformableTrait;
  */
 class Participant extends Model implements Transformable
 {
-    use TransformableTrait,SoftDeletes;
+    use SoftDeletes,TransformableTrait;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
     protected $fillable = [
-        'user_id'
+        'id',
+        'user_id',
     ];
 
     protected $dates = [
@@ -31,12 +27,13 @@ class Participant extends Model implements Transformable
         'deleted_at'
     ];
 
-    public function events()
-    {
-        return $this->belongsToMany(Event::class,'event_participants');
+    public function user(){
+        return $this->hasOne(User::class,'id','user_id' );
     }
 
-    public function user(){
-        return $this->hasOne(User::class,'user_id');
+    public function events()
+    {
+        return $this->belongsToMany(Event::class);
     }
+
 }

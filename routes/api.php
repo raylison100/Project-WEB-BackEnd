@@ -17,8 +17,15 @@ Route::get('/', function () {
 
 Route::group(['prefix' => 'betterworld'], function () {
 
-    // New User
+    //User
     Route::post('users', 'UsersController@store');// Create a user.
+    Route::get('users', 'UsersController@index');// Return all users.
+    Route::get('users/participant', 'UsersController@eventsParticipants');// Return all events for a user.
+    Route::get('users/{id}', 'UsersController@show');// Return a users.
+
+    //Events
+    Route::get('events', 'EventsController@index');// Busca todos os events
+    Route::get('events/{id}', 'EventsController@show'); //Busca events id;
 
     //  Gerenciamento de login
     Route::post('oauth/token', '\Laravel\Passport\Http\Controllers\AccessTokenController@issueToken')->middleware('check-email-verification', 'insert-scope');//Login de usuario;
@@ -40,18 +47,13 @@ Route::group(['prefix' => 'betterworld'], function () {
         Route::delete('oauth/tokens', 'Auth\AuthController@destroyToken');//  Destroi token de acesso.
 
         // User
-        Route::get('users', 'UsersController@index');// Return all users.
-        Route::get('users/participant', 'UsersController@eventsParticipants');// Return all events for a user.
-        Route::get('users/{id}', 'UsersController@show');// Return a users.
         Route::put('users/{id}', 'UsersController@update');// Update a user.
         Route::delete('users/{id}', 'UsersController@destroy');// Delete a user.
 
         //Events
-        Route::get('events', 'EventsController@index');// Busca todos os events
-        Route::get('events/{id}', 'EventsController@show'); //Busca events id;
-        Route::post('events', 'EventsController@store');// Busca todos os events
+        Route::post('events', 'EventsController@store');// Create a event
         Route::put('events/{id}', 'EventsController@update');// Atualiza um events
-        Route::put('events/participant/{id}', 'EventsController@participantAdd');// Adicona um user a um event
+        Route::post('events/participant/{id}', 'EventParticipantController@participantAdd');// Adicona um user a um event
 
         //Messages
         Route::post('mensagens', 'MessagesController@store');// Criação de messagem

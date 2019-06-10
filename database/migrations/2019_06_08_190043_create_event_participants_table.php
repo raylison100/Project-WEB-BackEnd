@@ -4,9 +4,9 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
 /**
- * Class CreateParticipantsTable.
+ * Class CreateEventParticipantsTable.
  */
-class CreateParticipantsTable extends Migration
+class CreateEventParticipantsTable extends Migration
 {
 	/**
 	 * Run the migrations.
@@ -15,13 +15,10 @@ class CreateParticipantsTable extends Migration
 	 */
 	public function up()
 	{
-		Schema::create('participants', function(Blueprint $table) {
+		Schema::create('event_participants', function(Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('user_id');
+
             $table->timestamps();
-            $table->softDeletes();
-            $table->foreign('user_id')
-                ->references('id')->on('users');
 		});
 	}
 
@@ -32,6 +29,6 @@ class CreateParticipantsTable extends Migration
 	 */
 	public function down()
 	{
-		Schema::drop('participants');
+		Schema::drop('event_participants');
 	}
 }
