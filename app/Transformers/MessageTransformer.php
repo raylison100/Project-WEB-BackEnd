@@ -26,14 +26,14 @@ class MessageTransformer extends TransformerAbstract
             'content'    => $model->content,
             'created_at' => $model->created_at->toDateTimeString(),
             'updated_at' => $model->updated_at->toDateTimeString(),
-            "user"  => $this->getUser($model),
+            "user"       => $this->getUser($model),
         ];
     }
 
     public function getUser($model){
         $user = [
-            "id" => $model->user->id,
-            "name" => $model->user->name,
+            "user_id"   => $model->user->id,
+            "name"      => $model->user->name,
         ];
         return $user;
     }

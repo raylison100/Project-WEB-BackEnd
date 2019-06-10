@@ -58,7 +58,7 @@ class EventTransformer extends TransformerAbstract
         $counter = 0;
         foreach ($model->participants as $participant) {
             $posts = [
-                "id"            => $participant->user_id,
+                "user_id"       => $participant->user_id,
                 "name"          => $participant->user->name,
             ];
             $participants[$counter] = $posts;
