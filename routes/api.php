@@ -43,11 +43,11 @@ Route::group(['prefix' => 'betterworld'], function () {
     Route::group(['middleware' => ['auth:api', 'scope:COMMON']], function () {
 
         // Authenticated
-        Route::get('auth', 'Auth\AuthController@getUserAuthenticated');// Recupera usuario logado.
         Route::delete('oauth/tokens', 'Auth\AuthController@destroyToken');//  Destroi token de acesso.
 
         // User
         Route::put('users/{id}', 'UsersController@update');// Update a user.
+        Route::get('authentication/user', 'Auth\AuthController@getUserAuthenticated');//Ativação de usuario via token em email.
         Route::delete('users/{id}', 'UsersController@destroy');// Delete a user.
 
         //Events
