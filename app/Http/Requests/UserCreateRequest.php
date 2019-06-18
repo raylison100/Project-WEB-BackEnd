@@ -33,7 +33,7 @@ class UserCreateRequest extends FormRequest
     public function messages()
     {
         return [
-                'required' => 'The field: :attribute is required!',
+            'required' => 'The field: :attribute is required!',
             'max'      => 'Maximum size exceeded for: :attribute ',
             'min'      => 'required minimum size for: :attribute ',
             'email'    => 'Email not allowed'
