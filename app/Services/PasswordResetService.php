@@ -52,11 +52,15 @@ class PasswordResetService
             if (isset($adminUser) && isset($passwordReset))
                 $adminUser->notify( new PasswordResetRequest($passwordReset->token));
             return response()->json([
+                "error" => false,
                 'message' => 'We have e-mailed your password reset link!'
-            ]);
+            ],200);
         }catch (\Exception $e){
             DB::rollBack();
-            return response()->json(['message' => "We can't find a user with that e-mail address."], 404);
+            return response()->json([
+                "error" => true,
+                'message' => "We can't find a user with that e-mail address."
+            ], 404);
         }
     }
 
@@ -66,6 +70,7 @@ class PasswordResetService
 
         if (!$passwordReset)
             return response()->json([
+                "error" => true,
                 'message' => 'This password reset token is invalid.'
             ], 404);
 
@@ -74,6 +79,7 @@ class PasswordResetService
             $this->repositoryPasswordReset->delete($passwordReset->id);
 
             return response()->json([
+                "error" => true,
                 'message' => 'This password reset token expired.'
             ], 404);
         }
@@ -90,6 +96,7 @@ class PasswordResetService
         $passwordReset = $this->repositoryPasswordReset->skipPresenter()->findWhere($where)->first();
         if (!$passwordReset)
             return response()->json([
+                "error" => true,
                 'message' => 'This password reset token is invalid.'
             ], 404);
 
@@ -98,6 +105,7 @@ class PasswordResetService
         if (!isset($adminUser)) {
 
             return response()->json([
+                "error" => true,
                 'message' => "We can't find a user with that e-mail address."
             ], 404);
         }
@@ -113,13 +121,14 @@ class PasswordResetService
             $this->repositoryPasswordReset->delete($passwordReset->id);
             DB::commit();
             return response()->json([
+                "false" => true,
                 'message' => 'This password reset success .'
             ], 200);
         }catch (\Exception $e){
             DB::rollBack();
             return response()->json([
                 'error' => true,
-                'message' => $e->getMessage()
+                'message' => 'this invalid password reset'
             ]);
         }
 
