@@ -121,7 +121,7 @@ class PasswordResetService
             $this->repositoryPasswordReset->delete($passwordReset->id);
             DB::commit();
             return response()->json([
-                "false" => true,
+                "error" => false,
                 'message' => 'This password reset success .'
             ], 200);
         }catch (\Exception $e){
