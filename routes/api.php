@@ -44,20 +44,22 @@ Route::group(['prefix' => 'betterworld'], function () {
 
         // Authenticated
         Route::delete('oauth/tokens', 'Auth\AuthController@destroyToken');//  Destroi token de acesso.
-
-        // User
-        Route::put('users/{id}', 'UsersController@update');// Update a user.
         Route::get('authentication/user', 'Auth\AuthController@getUserAuthenticated');//Ativação de usuario via token em email.
-        Route::delete('users/{id}', 'UsersController@destroy');// Delete a user.
-
-        //Events
-        Route::post('events', 'EventsController@store');// Create a event
-        Route::put('events/{id}', 'EventsController@update');// Atualiza um events
-        Route::post('events/participant/{id}', 'EventParticipantController@participantAdd');// Adicona um user a um event
-
-        //Messages
-        Route::post('mensagens', 'MessagesController@store');// Criação de messagem
-        Route::put('mensagens/{id}', 'MessagesController@update');// Edição de messagem
-
     });
+
+    //Rotas altenticadas liberadas por enquanto
+
+    // User
+    Route::put('users/{id}', 'UsersController@update');// Update a user.
+    Route::delete('users/{id}', 'UsersController@destroy');// Delete a user.
+
+    //Events
+    Route::post('events', 'EventsController@store');// Create a event
+    Route::put('events/{id}', 'EventsController@update');// Atualiza um events
+    Route::post('events/participant/{id}', 'EventParticipantController@participantAdd');// Adicona um user a um event
+
+    //Messages
+    Route::post('mensagens', 'MessagesController@store');// Criação de messagem
+    Route::put('mensagens/{id}', 'MessagesController@update');// Edição de messagem
+
 });
